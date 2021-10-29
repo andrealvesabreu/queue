@@ -84,6 +84,7 @@ class Rabbit extends BaseQueue implements QueueInterface
             $this->producer = $this->context->createProducer();
             return true;
         } catch (\Exception $e) {
+            var_dump($e);
             return false;
         }
     }

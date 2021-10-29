@@ -1,15 +1,17 @@
 <?php
-
 return [
     'redisteste' => [
         'type' => 'queue',
         'driver' => 'redis',
         'host' => 'localhost',
-        'persisted'=>true,
+        'persisted' => true,
         'port' => 6379,
         'pass' => '',
         'database' => 16,
-        'processor' => 'Brudam'
+        'consumer' => [
+            'Test',
+            'fn'
+        ]
     ],
     'track' => [
         'type' => 'queue',
@@ -17,11 +19,11 @@ return [
         'host' => 'localhost',
         'vhost' => 'services',
         'port' => 5672,
-        'user'=>'admin',
-        'pass' => 'Sghf250l!',
+        'user' => 'admin',
+        'pass' => 'admin',
         'exchange' => 'tracking',
         'queue_type' => 'direct',
         'persisted' => true,
-        'processor' => 'Brudam'
+        'consumer' => 'Test'
     ]
 ];

@@ -65,18 +65,25 @@ abstract class BaseQueue
         $callable = false;
         if ($processor instanceof \Closure) {
             $callable = $processor;
-        } else if (isset($this->config['Consumer'])) {
+        } else if (isset($this->config['consumer'])) {
             /**
              * If consumer is an array with class and method
              */
-            if (is_array($this->config['Consumer']) && is_callable($this->config['Consumer'])) {
-                $callable = $this->config['Consumer'];
-            } else if (class_exists($this->config['Consumer']) && method_exists($this->config['Consumer'], 'fire')) {
+            if (is_array($this->config['consumer'])) {
+                if (count($this->config['consumer']) == 2 && is_callable($this->config['consumer'])) {
+                    $callable = $this->config['consumer'];
+                } else if (count($this->config['consumer']) == 1 && method_exists($this->config['consumer'], 'fire')) {
+                    $callable = [
+                        $this->config['consumer'],
+                        'fire'
+                    ];
+                }
+            } else if (class_exists($this->config['consumer']) && method_exists($this->config['consumer'], 'fire')) {
                 /**
                  * Default Consumer method must be "fire"
                  */
                 $callable = [
-                    $this->config['Consumer'],
+                    $this->config['consumer'],
                     'fire'
                 ];
             }
