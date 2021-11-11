@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d58549d1fa6b82d2037fc899e943bf28",
+    "content-hash": "3e62b1ba6bfcbb1b4fbc89e042d1591b",
     "packages": [
         {
             "name": "brick/math",
@@ -1109,16 +1109,16 @@
         },
         {
             "name": "illuminate/support",
-            "version": "v8.63.0",
+            "version": "v8.70.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "259993e2119e99be17c10486f66c5a13b7fe4a70"
+                "reference": "1ed88eed1d179e5a27171324e57692366449eca0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/259993e2119e99be17c10486f66c5a13b7fe4a70",
-                "reference": "259993e2119e99be17c10486f66c5a13b7fe4a70",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/1ed88eed1d179e5a27171324e57692366449eca0",
+                "reference": "1ed88eed1d179e5a27171324e57692366449eca0",
                 "shasum": ""
             },
             "require": {
@@ -1128,7 +1128,7 @@
                 "illuminate/collections": "^8.0",
                 "illuminate/contracts": "^8.0",
                 "illuminate/macroable": "^8.0",
-                "nesbot/carbon": "^2.31",
+                "nesbot/carbon": "^2.53.1",
                 "php": "^7.3|^8.0",
                 "voku/portable-ascii": "^1.4.8"
             },
@@ -1173,32 +1173,32 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-10-04T13:02:25+00:00"
+            "time": "2021-11-09T17:40:38+00:00"
         },
         {
             "name": "inspire/core",
-            "version": "0.10",
+            "version": "0.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/andrealvesabreu/core.git",
-                "reference": "e3cac7a7190581ab6f77af749988f047d2cee879"
+                "reference": "e7cd8c4f45d2c66333e13d6f35fb69e310bdec31"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/andrealvesabreu/core/zipball/e3cac7a7190581ab6f77af749988f047d2cee879",
-                "reference": "e3cac7a7190581ab6f77af749988f047d2cee879",
+                "url": "https://api.github.com/repos/andrealvesabreu/core/zipball/e7cd8c4f45d2c66333e13d6f35fb69e310bdec31",
+                "reference": "e7cd8c4f45d2c66333e13d6f35fb69e310bdec31",
                 "shasum": ""
             },
             "require": {
                 "cache/array-adapter": "~1.1",
                 "cache/memcached-adapter": "~1.1",
-                "cache/redis-adapter": "1.1.0",
+                "cache/redis-adapter": "~1.1",
                 "ext-json": "*",
-                "illuminate/support": "8.63.0",
+                "illuminate/support": "8.70.2",
                 "monolog/monolog": "~2.3",
                 "neitanod/forceutf8": "^2.0",
-                "nette/utils": "~3.2",
-                "opis/json-schema": "2.2.0",
+                "nette/utils": "^3.2",
+                "opis/json-schema": "~2.2",
                 "php": ">=7.4",
                 "voku/portable-ascii": "~1.5"
             },
@@ -1222,9 +1222,9 @@
             "description": "Core to common PHP API",
             "support": {
                 "issues": "https://github.com/andrealvesabreu/core/issues",
-                "source": "https://github.com/andrealvesabreu/core/tree/0.10"
+                "source": "https://github.com/andrealvesabreu/core/tree/0.1.0"
             },
-            "time": "2021-11-11T01:38:56+00:00"
+            "time": "2021-11-11T02:18:27+00:00"
         },
         {
             "name": "monolog/monolog",
