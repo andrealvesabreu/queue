@@ -10,7 +10,7 @@
 	"license" : "MIT",
 	"require" : {
 		"php" : ">=7.4",
-		"inspire/core" : "dev-main",
+		"inspire/core" : "~0.10",
 		"enqueue/amqp-ext" : "~0.10",
 		"enqueue/enqueue" : "~0.10",
 		"enqueue/redis" : "~0.10"
@@ -18,7 +18,7 @@
 	"config" : {
 		"process-timeout" : 30
 	},
-	"minimum-stability" : "dev",
+	"minimum-stability" : "stable",
 	"authors" : [{
 			"name" : "André Alves",
 			"email" : "aluisalves0@gmail.com"
