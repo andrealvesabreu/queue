@@ -928,12 +928,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-enqueue/null.git",
-                "reference": "25614c0b058a8535766b018289a69f288dca97a8"
+                "reference": "1f7b17d43b7dfdce9047a484625db3cb888e0dc7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-enqueue/null/zipball/25614c0b058a8535766b018289a69f288dca97a8",
-                "reference": "25614c0b058a8535766b018289a69f288dca97a8",
+                "url": "https://api.github.com/repos/php-enqueue/null/zipball/1f7b17d43b7dfdce9047a484625db3cb888e0dc7",
+                "reference": "1f7b17d43b7dfdce9047a484625db3cb888e0dc7",
                 "shasum": ""
             },
             "require": {
@@ -978,7 +978,7 @@
                 "issues": "https://github.com/php-enqueue/enqueue-dev/issues",
                 "source": "https://github.com/php-enqueue/enqueue-dev"
             },
-            "time": "2021-02-17T21:24:05+00:00"
+            "time": "2021-10-29T20:37:39+00:00"
         },
         {
             "name": "enqueue/redis",
@@ -1267,12 +1267,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/andrealvesabreu/core.git",
-                "reference": "d321424381c1bc3eead4343fc78de50f00b729b3"
+                "reference": "c78d89c983a724ad1481614895196c8a49cfd35b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/andrealvesabreu/core/zipball/d321424381c1bc3eead4343fc78de50f00b729b3",
-                "reference": "d321424381c1bc3eead4343fc78de50f00b729b3",
+                "url": "https://api.github.com/repos/andrealvesabreu/core/zipball/c78d89c983a724ad1481614895196c8a49cfd35b",
+                "reference": "c78d89c983a724ad1481614895196c8a49cfd35b",
                 "shasum": ""
             },
             "require": {
@@ -1312,7 +1312,7 @@
                 "issues": "https://github.com/andrealvesabreu/core/issues",
                 "source": "https://github.com/andrealvesabreu/core/tree/main"
             },
-            "time": "2021-10-27T02:48:02+00:00"
+            "time": "2021-11-01T04:06:47+00:00"
         },
         {
             "name": "league/config",
@@ -1544,12 +1544,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "2d363e8ae89bde9c7625c9ec108cf7aa65921bed"
+                "reference": "434e81b4edc96e0fec1fbc7cd5b81f4d294ed794"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/2d363e8ae89bde9c7625c9ec108cf7aa65921bed",
-                "reference": "2d363e8ae89bde9c7625c9ec108cf7aa65921bed",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/434e81b4edc96e0fec1fbc7cd5b81f4d294ed794",
+                "reference": "434e81b4edc96e0fec1fbc7cd5b81f4d294ed794",
                 "shasum": ""
             },
             "require": {
@@ -1560,6 +1560,7 @@
                 "symfony/translation": "^3.4 || ^4.0 || ^5.0"
             },
             "require-dev": {
+                "doctrine/dbal": "^2.0 || ^3.0",
                 "doctrine/orm": "^2.7",
                 "friendsofphp/php-cs-fixer": "^3.0",
                 "kylekatarnls/multi-tester": "^2.0",
@@ -1631,7 +1632,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-09-18T20:53:09+00:00"
+            "time": "2021-10-18T21:30:17+00:00"
         },
         {
             "name": "nette/schema",
@@ -1701,12 +1702,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/utils.git",
-                "reference": "c5d2b4eb3fac05d9143bd14849b3a5bce9d24c06"
+                "reference": "532bf734dc4a30081560508ff027422de9310960"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/utils/zipball/c5d2b4eb3fac05d9143bd14849b3a5bce9d24c06",
-                "reference": "c5d2b4eb3fac05d9143bd14849b3a5bce9d24c06",
+                "url": "https://api.github.com/repos/nette/utils/zipball/532bf734dc4a30081560508ff027422de9310960",
+                "reference": "532bf734dc4a30081560508ff027422de9310960",
                 "shasum": ""
             },
             "require": {
@@ -1778,7 +1779,7 @@
                 "issues": "https://github.com/nette/utils/issues",
                 "source": "https://github.com/nette/utils/tree/v3.2"
             },
-            "time": "2021-10-26T23:10:51+00:00"
+            "time": "2021-10-27T11:19:37+00:00"
         },
         {
             "name": "psr/cache",
@@ -1929,22 +1930,21 @@
         },
         {
             "name": "psr/simple-cache",
-            "version": "dev-master",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/simple-cache.git",
-                "reference": "66e27efc65ddef47d3008c243a235ab9359b5754"
+                "reference": "408d5eafb83c57f6365a3ca330ff23aa4a5fa39b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/simple-cache/zipball/66e27efc65ddef47d3008c243a235ab9359b5754",
-                "reference": "66e27efc65ddef47d3008c243a235ab9359b5754",
+                "url": "https://api.github.com/repos/php-fig/simple-cache/zipball/408d5eafb83c57f6365a3ca330ff23aa4a5fa39b",
+                "reference": "408d5eafb83c57f6365a3ca330ff23aa4a5fa39b",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1963,7 +1963,7 @@
             "authors": [
                 {
                     "name": "PHP-FIG",
-                    "homepage": "https://www.php-fig.org/"
+                    "homepage": "http://www.php-fig.org/"
                 }
             ],
             "description": "Common interfaces for simple caching",
@@ -1977,7 +1977,7 @@
             "support": {
                 "source": "https://github.com/php-fig/simple-cache/tree/master"
             },
-            "time": "2021-10-06T11:02:22+00:00"
+            "time": "2017-10-23T01:57:42+00:00"
         },
         {
             "name": "pwfisher/command-line-php",
@@ -2702,12 +2702,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "1655fd0b258c824897d54d0dca777dcebf64c831"
+                "reference": "1bbbed9136f49eedb059968cb70627dec7e3876b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/1655fd0b258c824897d54d0dca777dcebf64c831",
-                "reference": "1655fd0b258c824897d54d0dca777dcebf64c831",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/1bbbed9136f49eedb059968cb70627dec7e3876b",
+                "reference": "1bbbed9136f49eedb059968cb70627dec7e3876b",
                 "shasum": ""
             },
             "require": {
@@ -2791,7 +2791,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-10-23T20:37:48+00:00"
+            "time": "2021-10-30T10:15:42+00:00"
         },
         {
             "name": "symfony/translation-contracts",
@@ -2958,5 +2958,5 @@
         "php": ">=7.4"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.0.0"
 }
