@@ -1,7 +1,7 @@
 <?php
 return [
-    'redisteste' => [
-        'type' => 'queue',
+    [
+        'name' => 'redisteste',
         'driver' => 'redis',
         'host' => 'localhost',
         'persisted' => true,
@@ -13,8 +13,8 @@ return [
             'fn'
         ]
     ],
-    'track' => [
-        'type' => 'queue',
+    [
+        'name' => 'track',
         'driver' => 'rabbit',
         'host' => 'localhost',
         'vhost' => 'services',

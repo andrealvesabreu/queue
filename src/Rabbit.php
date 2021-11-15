@@ -6,10 +6,6 @@ use Enqueue\AmqpExt\AmqpConnectionFactory;
 use Interop\Amqp\AmqpTopic;
 use Inspire\Core\Message\MessageInterface;
 
-// use Interop\Amqp\AmqpQueue
-
-// use \Interop\Amqp\Impl\AmqpBind;
-
 /**
  * Description of Rabbit
  *
@@ -28,8 +24,24 @@ class Rabbit extends BaseQueue implements QueueInterface
     public function add(MessageInterface $message): bool
     {
         try {
-            $messageQueue = $this->context->createMessage(serialize($message));
+            $messageQueue = $this->context->createMessage($message->serialize());
             $this->producer->send($this->topic, $messageQueue);
+            return true;
+        } catch (\Exception $e) {
+            return false;
+        }
+    }
+
+    /**
+     * Add a string message to queue
+     *
+     * {@inheritdoc}
+     * @see QueueInterface::add()
+     */
+    public function addString(string $message): bool
+    {
+        try {
+            $this->producer->send($this->topic, $this->context->createMessage($message));
             return true;
         } catch (\Exception $e) {
             return false;
