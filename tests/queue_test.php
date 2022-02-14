@@ -1,14 +1,14 @@
 <?php
 declare(strict_types = 1);
-use Inspire\Core\System\Config;
+use Inspire\Support\Config;
 use Inspire\Queue\Factories\ProducerFactory;
-use Inspire\Core\Message\JsonMessage;
-use Inspire\Core\Message\ArrayMessage;
+use Inspire\Support\Message\Serialize\JsonMessage;
+use Inspire\Support\Message\Serialize\ArrayMessage;
 use Inspire\Queue\Queue;
 
 define('APP_NAME', 'test');
 include dirname(__DIR__) . '/vendor/autoload.php';
-Inspire\Core\System\Config::loadFromFolder('config');
+Inspire\Support\Config::loadFromFolder('config');
 
 $message1 = new JsonMessage([
     'test' => 'json message serializaer test'

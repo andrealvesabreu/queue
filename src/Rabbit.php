@@ -4,7 +4,7 @@ namespace Inspire\Queue;
 
 use Enqueue\AmqpExt\AmqpConnectionFactory;
 use Interop\Amqp\AmqpTopic;
-use Inspire\Core\Message\MessageInterface;
+use Inspire\Support\Message\Serialize\MessageInterface;
 
 /**
  * Description of Rabbit
@@ -80,19 +80,10 @@ class Rabbit extends BaseQueue implements QueueInterface
                     $this->topic->setType(AmqpTopic::TYPE_TOPIC);
                     break;
             }
-            // $this->topic->setArguments([
-            // 'alternate-exchange' => 'foo',
-            // ]);
             $this->queueName = $config['exchange'];
             $this->context->declareTopic($this->topic);
             $this->config = $config;
             $this->config['queue'] = $queue;
-            // $queue = $context->createQueue('track');
-            // if (isset($config['persisted']) && $config['persisted']) {
-            // $queue->addFlag(AmqpQueue::FLAG_DURABLE);
-            // }
-            // $context->declareQueue($queue);
-            // $context->bind(new AmqpBind($topic, $queue));
             $this->producer = $this->context->createProducer();
             return true;
         } catch (\Exception $e) {

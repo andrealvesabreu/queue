@@ -2,7 +2,7 @@
 declare(strict_types = 1);
 namespace Inspire\Queue;
 
-use Inspire\Core\Message\MessageInterface;
+use Inspire\Support\Message\Serialize\MessageInterface;
 
 /**
  * Description of QueueInterface
@@ -30,7 +30,7 @@ interface QueueInterface
     public function add(MessageInterface $message): bool;
 
     /**
-     * COnsume and proccess messages from corrent queue
+     * Consume and proccess messages from current queue
      */
     public function consume();
 }

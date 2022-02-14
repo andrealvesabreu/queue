@@ -2,7 +2,7 @@
 declare(strict_types = 1);
 namespace Inspire\Queue;
 
-use Inspire\Core\Message\MessageInterface;
+use Inspire\Support\Message\Serialize\MessageInterface;
 use Enqueue\Redis\ {
     RedisConnectionFactory,
     PhpRedis
@@ -76,9 +76,15 @@ class Redis extends BaseQueue implements QueueInterface
             $cfg['read_write_timeout'] = $config['read_timeout'] ?? 30;
             $cfg['timeout'] = $config['connection_timeout'] ?? 30;
             $cfg['database'] = $config['database'] ?? 1;
+            /**
+             * Initialize Redis connection
+             */
             $redis = new PhpRedis($cfg);
             $redis->connect();
             $factory = new RedisConnectionFactory($redis);
+            /**
+             * Create context and producer
+             */
             $this->context = $factory->createContext();
             $this->config = $config;
             $this->config['queue'] = $queue;
