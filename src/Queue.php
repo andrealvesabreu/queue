@@ -2,7 +2,7 @@
 declare(strict_types = 1);
 namespace Inspire\Queue;
 
-use Inspire\Support\Config;
+use Inspire\Config\Config;
 
 /**
  *

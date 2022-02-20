@@ -13,7 +13,7 @@
 		"enqueue/amqp-ext" : "~0.10",
 		"enqueue/enqueue" : "~0.10",
 		"enqueue/redis" : "~0.10",
-		"inspire/support" : "~0.1"
+		"inspire/config" : "~0.1"
 	},
 	"config" : {
 		"process-timeout" : 30
