@@ -1,5 +1,7 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
+
 namespace Inspire\Queue;
 
 use Enqueue\AmqpExt\AmqpConnectionFactory;
@@ -25,6 +27,7 @@ class Rabbit extends BaseQueue implements QueueInterface
     {
         try {
             $messageQueue = $this->context->createMessage($message->serialize());
+            $messageQueue->setMessageId((\Ramsey\Uuid\Uuid::Uuid4())->toString());
             $this->producer->send($this->topic, $messageQueue);
             return true;
         } catch (\Exception $e) {
@@ -41,7 +44,9 @@ class Rabbit extends BaseQueue implements QueueInterface
     public function addString(string $message): bool
     {
         try {
-            $this->producer->send($this->topic, $this->context->createMessage($message));
+            $messageQueue = $this->context->createMessage($message);
+            $messageQueue->setMessageId((\Ramsey\Uuid\Uuid::Uuid4())->toString());
+            $this->producer->send($this->topic, $messageQueue);
             return true;
         } catch (\Exception $e) {
             return false;
@@ -54,7 +59,7 @@ class Rabbit extends BaseQueue implements QueueInterface
      * {@inheritdoc}
      * @see \Inspire\Queue\QueueInterface::init()
      */
-    public function init(array $config, string $queue): bool
+    public function init(array $config): bool
     {
         try {
             /**
@@ -83,13 +88,11 @@ class Rabbit extends BaseQueue implements QueueInterface
             $this->queueName = $config['exchange'];
             $this->context->declareTopic($this->topic);
             $this->config = $config;
-            $this->config['queue'] = $queue;
             $this->producer = $this->context->createProducer();
             return true;
         } catch (\Exception $e) {
-            var_dump($e);
+            throw ($e);
             return false;
         }
     }
 }
-

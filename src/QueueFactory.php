@@ -1,12 +1,16 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
+
+// Copyright (c) 2022 André Alves
+// 
+// This software is released under the MIT License.
+// https://opensource.org/licenses/MIT
+
 namespace Inspire\Queue;
 
-/**
- * Description of QueueFactory
- *
- * @author aalves
- */
+use Inspire\Config\Config;
+
 final class QueueFactory
 {
 
@@ -17,20 +21,30 @@ final class QueueFactory
      * @param string $queueName
      * @return BaseQueue|NULL
      */
-    public static function create(array $config, string $queueName): ?BaseQueue
+    public static function create(string $queueName, ?array $config = null): ?BaseQueue
     {
-        if (! isset($config['driver'])) {
+        if ($config === null) {
+            $settings = Config::get("queue.{$queueName}");
+            if ($settings === null) {
+                throw new \Exception("Queue configuration not found");
+            }
+        } else {
+            $settings = $config;
+        }
+        if ($settings == null) {
             throw new \Exception('Please set a driver configuration');
         }
-        $classname = "\\Inspire\\Queue\\" . ucfirst($config['driver']);
-        if (! class_exists($classname)) {
+        if (!isset($settings['driver'])) {
+            throw new \Exception('Please set a driver configuration');
+        }
+        $classname = "\\Inspire\\Queue\\" . ucfirst($settings['driver']);
+        if (!class_exists($classname)) {
             throw new \Exception('Driver is not supported');
         }
         $queue = new $classname();
-        if ($queue->init($config, $queueName)) {
+        if ($queue->init($settings)) {
             return $queue;
         }
         throw new \Exception("Could not initialize queue. Check your configuration for '{$queueName}' queue.");
     }
 }
-

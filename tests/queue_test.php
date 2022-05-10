@@ -1,7 +1,8 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
+
 use Inspire\Config\Config;
-use Inspire\Queue\Factories\ProducerFactory;
 use Inspire\Support\Message\Serialize\JsonMessage;
 use Inspire\Support\Message\Serialize\ArrayMessage;
 use Inspire\Queue\Queue;
@@ -21,5 +22,13 @@ Queue::on('track')->add($message2);
 
 Queue::on('redisteste')->add($message1);
 Queue::on('redisteste')->add($message2);
-Queue::on('track')->consume(function () {});
-Queue::on('redisteste')->consume(function () {});
+Queue::on('redisteste')->addString("Some simples message");
+Queue::on('track')->addString("Some simples message");
+// Queue::on('track')->consume(function ($msg) {
+//     var_dump($msg->getBody());
+//     var_dump($msg->getMessageId());
+// });
+// Queue::on('redisteste')->consume(function ($msg) {
+//     var_dump($msg->getBody());
+//     var_dump($msg->getMessageId());
+// });

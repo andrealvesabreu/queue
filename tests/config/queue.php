@@ -9,7 +9,8 @@ return [
             'persisted' => true,
             'port' => 6379,
             'pass' => '',
-            'database' => 16,
+            'database' => 15,
+            'queue' => 'queuetest',
             'consumer' => [
                 'Test',
                 'fn'
@@ -25,6 +26,7 @@ return [
             'pass' => 's0m3p4ssw0rd',
             'exchange' => 'tracking',
             'queue_type' => 'direct',
+            'queue' => 'track',
             'persisted' => true,
             'consumer' => 'Test'
         ]

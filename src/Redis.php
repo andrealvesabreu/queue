@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
+
 namespace Inspire\Queue;
 
 use Inspire\Support\Message\Serialize\MessageInterface;
-use Enqueue\Redis\ {
+use Enqueue\Redis\{
     RedisConnectionFactory,
     PhpRedis
 };
@@ -55,7 +57,7 @@ class Redis extends BaseQueue implements QueueInterface
      * {@inheritdoc}
      * @see QueueInterface::init()
      */
-    public function init(array $config, string $queue): bool
+    public function init(array $config): bool
     {
         try {
             /**
@@ -87,8 +89,7 @@ class Redis extends BaseQueue implements QueueInterface
              */
             $this->context = $factory->createContext();
             $this->config = $config;
-            $this->config['queue'] = $queue;
-            $this->topic = $this->context->createTopic($queue);
+            $this->topic = $this->context->createTopic($this->config['queue']);
             $this->producer = $this->context->createProducer();
             return true;
         } catch (\Exception $e) {
@@ -96,4 +97,3 @@ class Redis extends BaseQueue implements QueueInterface
         }
     }
 }
-

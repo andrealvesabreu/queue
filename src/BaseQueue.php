@@ -1,12 +1,14 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
+
+// Copyright (c) 2022 André Alves
+// 
+// This software is released under the MIT License.
+// https://opensource.org/licenses/MIT
+
 namespace Inspire\Queue;
 
-/**
- * Description of BaseQueue
- *
- * @author aalves
- */
 abstract class BaseQueue
 {
 
@@ -93,6 +95,7 @@ abstract class BaseQueue
          */
         if ($callable) {
             while ($message = $consumer->receive()) {
+                var_dump($message);
                 if (call_user_func($callable, $message)) {
                     $consumer->acknowledge($message);
                 } else {

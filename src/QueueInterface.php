@@ -16,10 +16,9 @@ interface QueueInterface
      * Initialize objects to connect a broker
      *
      * @param array $config
-     * @param string $queue
      * @return bool
      */
-    public function init(array $config, string $queue): bool;
+    public function init(array $config): bool;
 
     /**
      * Insert a message to current queue
