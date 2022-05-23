@@ -1,7 +1,5 @@
 <?php
-
-declare(strict_types=1);
-
+declare(strict_types = 1);
 namespace Inspire\Queue;
 
 use Enqueue\AmqpExt\AmqpConnectionFactory;
@@ -23,11 +21,13 @@ class Rabbit extends BaseQueue implements QueueInterface
      * {@inheritdoc}
      * @see QueueInterface::add()
      */
-    public function add(MessageInterface $message): bool
+    public function add(MessageInterface $message, ?array $properties = [], ?array $headers = []): bool
     {
         try {
-            $messageQueue = $this->context->createMessage($message->serialize());
-            $messageQueue->setMessageId((\Ramsey\Uuid\Uuid::Uuid4())->toString());
+            $messageQueue = $this->context->createMessage($message->serialize(), $properties ?? [], $headers ?? []);
+            if (isset($properties['routingKey']) && ! empty($properties['routingKey'])) {
+                $messageQueue->setRoutingKey($properties['routingKey']);
+            }
             $this->producer->send($this->topic, $messageQueue);
             return true;
         } catch (\Exception $e) {

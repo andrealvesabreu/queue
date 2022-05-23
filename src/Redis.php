@@ -1,11 +1,9 @@
 <?php
-
-declare(strict_types=1);
-
+declare(strict_types = 1);
 namespace Inspire\Queue;
 
 use Inspire\Support\Message\Serialize\MessageInterface;
-use Enqueue\Redis\{
+use Enqueue\Redis\ {
     RedisConnectionFactory,
     PhpRedis
 };
@@ -24,10 +22,10 @@ class Redis extends BaseQueue implements QueueInterface
      * {@inheritdoc}
      * @see QueueInterface::add()
      */
-    public function add(MessageInterface $message): bool
+    public function add(MessageInterface $message, ?array $properties = [], ?array $headers = []): bool
     {
         try {
-            $messageQueue = $this->context->createMessage($message->serialize());
+            $messageQueue = $this->context->createMessage($message->serialize(), $properties ?? [], $headers ?? []);
             $this->producer->send($this->topic, $messageQueue);
             return true;
         } catch (\Exception $e) {
