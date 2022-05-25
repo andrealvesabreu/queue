@@ -95,7 +95,6 @@ abstract class BaseQueue
          */
         if ($callable) {
             while ($message = $consumer->receive()) {
-                var_dump($message);
                 if (call_user_func($callable, $message)) {
                     $consumer->acknowledge($message);
                 } else {
