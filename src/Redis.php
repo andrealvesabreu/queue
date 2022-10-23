@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
+
 namespace Inspire\Queue;
 
 use Inspire\Support\Message\Serialize\MessageInterface;
-use Enqueue\Redis\ {
+use Enqueue\Redis\{
     RedisConnectionFactory,
     PhpRedis
 };
@@ -37,12 +39,12 @@ class Redis extends BaseQueue implements QueueInterface
      * Add a string message to queue
      *
      * {@inheritdoc}
-     * @see QueueInterface::add()
+     * @see QueueInterface::addString()
      */
-    public function addString(string $message): bool
+    public function addString(string $message, ?array $properties = [], ?array $headers = []): bool
     {
         try {
-            $this->producer->send($this->topic, $this->context->createMessage($message));
+            $this->producer->send($this->topic, $this->context->createMessage($message, $properties ?? [], $headers ?? []));
             return true;
         } catch (\Exception $e) {
             return false;

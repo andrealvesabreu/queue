@@ -9,8 +9,6 @@ declare(strict_types=1);
 
 namespace Inspire\Queue;
 
-use Inspire\Config\Config;
-
 final class Queue
 {
 
@@ -21,7 +19,7 @@ final class Queue
      *
      * @param string $queueName
      * @throws \Exception
-     * @return mixed
+     * @return BaseQueue
      */
     public static function on(string $queueName): ?BaseQueue
     {

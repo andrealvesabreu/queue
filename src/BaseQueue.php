@@ -9,6 +9,10 @@ declare(strict_types=1);
 
 namespace Inspire\Queue;
 
+/**
+ * @method static bool add(MessageInterface $message, ?array $properties = [], ?array $headers = [])
+ * @method static bool addString(string $message, ?array $properties = [], ?array $headers = [])
+ */
 abstract class BaseQueue
 {
 

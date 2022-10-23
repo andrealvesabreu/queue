@@ -1,5 +1,7 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
+
 namespace Inspire\Queue;
 
 use Enqueue\AmqpExt\AmqpConnectionFactory;
@@ -12,7 +14,6 @@ use Inspire\Support\Message\Serialize\MessageInterface;
  * @author aalves
  */
 class Rabbit extends BaseQueue implements QueueInterface
-
 {
 
     /**
@@ -25,7 +26,7 @@ class Rabbit extends BaseQueue implements QueueInterface
     {
         try {
             $messageQueue = $this->context->createMessage($message->serialize(), $properties ?? [], $headers ?? []);
-            if (isset($properties['routingKey']) && ! empty($properties['routingKey'])) {
+            if (isset($properties['routingKey']) && !empty($properties['routingKey'])) {
                 $messageQueue->setRoutingKey($properties['routingKey']);
             }
             $this->producer->send($this->topic, $messageQueue);
@@ -39,13 +40,16 @@ class Rabbit extends BaseQueue implements QueueInterface
      * Add a string message to queue
      *
      * {@inheritdoc}
-     * @see QueueInterface::add()
+     * @see QueueInterface::addString()
      */
-    public function addString(string $message): bool
+    public function addString(string $message, ?array $properties = [], ?array $headers = []): bool
     {
         try {
-            $messageQueue = $this->context->createMessage($message);
+            $messageQueue = $this->context->createMessage($message, $properties ?? [], $headers ?? []);
             $messageQueue->setMessageId((\Ramsey\Uuid\Uuid::Uuid4())->toString());
+            if (isset($properties['routingKey']) && !empty($properties['routingKey'])) {
+                $messageQueue->setRoutingKey($properties['routingKey']);
+            }
             $this->producer->send($this->topic, $messageQueue);
             return true;
         } catch (\Exception $e) {
@@ -93,6 +97,19 @@ class Rabbit extends BaseQueue implements QueueInterface
         } catch (\Exception $e) {
             throw ($e);
             return false;
+        }
+    }
+
+    /**
+     * @return [type]
+     */
+    public function __destruct()
+    {
+        if ($this->context) {
+            try {
+                $this->context->close();
+            } catch (\Exception $e) {
+            }
         }
     }
 }

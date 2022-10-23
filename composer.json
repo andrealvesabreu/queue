@@ -1,27 +1,29 @@
 {
-	"autoload" : {
-		"psr-4" : {
-			"Inspire\\Queue\\" : "src"
+	"autoload": {
+		"psr-4": {
+			"Inspire\\Queue\\": "src"
 		}
 	},
-	"name" : "inspire/queue",
-	"type" : "library",
-	"description" : "Queue manager",
-	"license" : "MIT",
-	"require" : {
-		"php" : "~8",
-		"enqueue/amqp-ext" : "~0.10",
-		"enqueue/enqueue" : "~0.10",
-		"enqueue/redis" : "~0.10",
-		"inspire/config" : "~0.1"
+	"name": "inspire/queue",
+	"type": "library",
+	"description": "Queue manager",
+	"license": "MIT",
+	"require": {
+		"php": "~8",
+		"enqueue/amqp-ext": "~0.10",
+		"enqueue/enqueue": "~0.10",
+		"enqueue/redis": "~0.10",
+		"enqueue/rdkafka": "~0.10",
+		"inspire/config": "~0.1"
 	},
-	"config" : {
-		"process-timeout" : 30
+	"config": {
+		"process-timeout": 30
 	},
-	"minimum-stability" : "stable",
-	"authors" : [{
-			"name" : "André Alves",
-			"email" : "aluisalves0@gmail.com"
+	"minimum-stability": "stable",
+	"authors": [
+		{
+			"name": "André Alves",
+			"email": "aluisalves0@gmail.com"
 		}
 	]
 }
