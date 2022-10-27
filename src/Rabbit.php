@@ -66,6 +66,9 @@ class Rabbit extends BaseQueue implements QueueInterface
     public function init(array $config): bool
     {
         try {
+            if (!class_exists('\\AMQPConnection')) {
+                throw new \Exception("Class AMQPConnection not found. AMOP extension not installed or not enabled.");
+            }
             /**
              * Connect to AMQP broker
              */

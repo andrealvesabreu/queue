@@ -10,10 +10,7 @@
 	"license": "MIT",
 	"require": {
 		"php": "~8",
-		"enqueue/amqp-ext": "~0.10",
 		"enqueue/enqueue": "~0.10",
-		"enqueue/redis": "~0.10",
-		"enqueue/rdkafka": "~0.10",
 		"inspire/config": "~0.1"
 	},
 	"config": {

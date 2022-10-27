@@ -60,6 +60,9 @@ class Redis extends BaseQueue implements QueueInterface
     public function init(array $config): bool
     {
         try {
+            if (!class_exists('\\Redis')) {
+                throw new \Exception("Class Redis not found. Redis extension not installed or not enabled.");
+            }
             /**
              * Connect to Redis Server
              */
