@@ -9,9 +9,10 @@
 	"description": "Queue manager",
 	"license": "MIT",
 	"require": {
-		"php": "~8",
+		"php": ">=8.1",
 		"enqueue/enqueue": "~0.10",
-		"inspire/config": "~0.1"
+		"inspire/config": "~0.1",
+		"enqueue/redis": "^0.10.9"
 	},
 	"config": {
 		"process-timeout": 30

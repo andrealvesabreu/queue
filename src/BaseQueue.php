@@ -45,6 +45,13 @@ abstract class BaseQueue
     protected $config = null;
 
     /**
+     * The of queue
+     * 
+     * @var string|null|null
+     */
+    protected ?string $queueName = null;
+
+    /**
      * Consume queue
      *
      * @param Callable $processor

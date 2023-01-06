@@ -72,6 +72,9 @@ class Rabbit extends BaseQueue implements QueueInterface
             /**
              * Connect to AMQP broker
              */
+            if(!class_exists('Enqueue\\AmqpExt\\AmqpConnectionFactory')){
+                throw new \Exception('Please install enqueue/amqp-ext package.');
+            }
             $factory = new AmqpConnectionFactory($config);
             $this->context = $factory->createContext();
             $this->topic = $this->context->createTopic($config['exchange']);
@@ -98,7 +101,7 @@ class Rabbit extends BaseQueue implements QueueInterface
             $this->producer = $this->context->createProducer();
             return true;
         } catch (\Exception $e) {
-            throw ($e);
+            throw $e;
             return false;
         }
     }

@@ -62,6 +62,8 @@ class Redis extends BaseQueue implements QueueInterface
         try {
             if (!class_exists('\\Redis')) {
                 throw new \Exception("Class Redis not found. Redis extension not installed or not enabled.");
+            } else if (!class_exists('Enqueue\\Redis\\PhpRedis')) {
+                throw new \Exception("Please install enqueue/redis package.");
             }
             /**
              * Connect to Redis Server
@@ -91,12 +93,14 @@ class Redis extends BaseQueue implements QueueInterface
              * Create context and producer
              */
             $this->context = $factory->createContext();
+            $this->queueName = $config['name'];
             $this->config = $config;
             $this->topic = $this->context->createTopic($this->config['queue']);
             $this->producer = $this->context->createProducer();
             return true;
         } catch (\Exception $e) {
-            return false;
+            throw  $e;
+            // return false;
         }
     }
 }
